@@ -260,12 +260,10 @@ button {
 
 #content > #data > div#aboutme-container {
   text-align: center;
-  margin: 30vh 25vw;
-  transform: translateY(-50%) translateY(-50px);
   padding: 20px;
   color: white;
   position: relative;
-  height: calc(100% - 140vh - 50px);
+  margin-top: 30vh;
 }
 
 #content > #data > div#aboutme-container > a {
@@ -285,11 +283,11 @@ button {
 #content > #data > div#aboutme-container > svg {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
   z-index: -1;
   width: 500px;
   height: 300px;
-  transform: translate(-5%, -20%);
+  transform: translate(-50%, -20%);
 }
 
 @media only screen and (max-width: 600px) {
@@ -367,11 +365,10 @@ button {
     margin: 20vh 10vw;
     transform: none;
     position: relative;
-
   }
 
   #content > #data > div#aboutme-container > svg {
-    transform: translate(-25vw, 0);
+    transform: translate(-50%, 0);
   }
 }
 
