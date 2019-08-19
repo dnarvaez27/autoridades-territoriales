@@ -4,9 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="A web app to visualize the voting post authorities for 2019 elections in Bogotá"
+    />
+    <meta name="author" content="David Narvaez" />
     <title>Puestos de Registro</title>
 
-    <link rel="shortcut icon" type="image/png" href="./favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="./favicon.png" />
 
     <!-- Bootstrap -->
     <link
@@ -38,6 +43,9 @@
       integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
       crossorigin="anonymous"
     />
+    
+    <!-- D3 -->
+    <script src="https://d3js.org/d3.v5.js"></script>
 
     <!-- Custom -->
     <link rel="stylesheet" type="text/css" href="./styles.css" />
@@ -47,6 +55,7 @@
   <body>
     <div id="header">
       <button onclick="home()"><i class="fas fa-home"></i></button>
+      <button onclick="aboutme()"><i class="fas fa-user"></i></button>
       <span>Autoridades Locales para elecciones 2019 - Bogotá</span>
       <button onclick="exportDirections()" id="see-route">
         <i class="fas fa-route"></i>
