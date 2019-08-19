@@ -88,7 +88,7 @@ button {
 }
 
 #content > #data > div:not(.loading6) {
-  background: url('/img/vote.jpg');
+  background: url('./img/vote.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
