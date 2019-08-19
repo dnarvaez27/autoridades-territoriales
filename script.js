@@ -330,7 +330,7 @@ function initMap() {
 
     new google.maps.Marker({
       position: { lat: pos.coords.latitude, lng: pos.coords.longitude },
-      icon: 'http://maps.google.com/mapfiles/ms/icons/homegardenbusiness.png',
+      icon: 'https://maps.google.com/mapfiles/ms/icons/homegardenbusiness.png',
       map
     });
 
@@ -343,7 +343,7 @@ function initMap() {
           lat: entry.location.latitude,
           lng: entry.location.longitude,
         },
-        icon: (entry.open ? 'http://maps.google.com/mapfiles/ms/icons/red-dot.png' : 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'),
+        icon: (entry.open ? 'https://maps.google.com/mapfiles/ms/icons/red-dot.png' : 'https://maps.google.com/mapfiles/ms/icons/green-dot.png'),
         map
       });
       marker.addListener('click', function () {
