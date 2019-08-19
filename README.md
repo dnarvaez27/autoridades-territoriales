@@ -1,4 +1,4 @@
-# autoridades-territoriales
+# Autoridades Territoriales
 A web app to visualize the voting post authorities for 2019 elections in Bogotá
 
 # Objetivo
@@ -17,6 +17,8 @@ Se utilizo:
 * APIs
   * Google Maps API  
     Permite visualizar los puestos de inscripción electoral así como la ruta hacia ellos.
+* D3.js  
+  Permite manipular elementos con respecto a información. Para este caso, se utilizó para manipular `SVG`
 
 # Screenshot
 ![screenshot](https://raw.githubusercontent.com/dnarvaez27/autoridades-territoriales/master/screenshot.jpg)
