@@ -98,7 +98,7 @@ button {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: calc(100% + 150px);
+  height: calc(100% + 20px);
   margin: -10px;
 }
 
@@ -314,8 +314,8 @@ button {
     height: 100%;
   }
 
-  #content > #data > div {
-    height: calc(100% + 100px);
+  #content > #data > div:not(.loading6):not(#aboutme-container) {
+    height: calc(100% + 150px);
   }
 
   #content > #data > div > h1 {
