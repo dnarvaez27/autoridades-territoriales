@@ -9,7 +9,7 @@ let pos;
 
 let state;
 let timeout = [undefined];
-
+// Descripción ---
 function home() {
   if (!state || state !== 1) {
     state = 1;
@@ -60,7 +60,7 @@ function home() {
   }
 }
 
-
+// Descripción ---
 function goToMap() {
   if (!state || state !== 2) {
     state = 2;
@@ -107,7 +107,7 @@ function goToMap() {
   }
 }
 
-
+// Descripción ---
 function aboutme() {
   if (!state || state !== 3) {
     state = 3;
@@ -289,7 +289,7 @@ function aboutme() {
   }
 }
 
-
+// Descripción ---
 function getLocation(cb, err) {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(cb);
@@ -298,7 +298,7 @@ function getLocation(cb, err) {
   }
 }
 
-
+// Descripción ---
 function getCloser(curPos, places) {
   const pl = places.filter(p => p.open);
 
@@ -314,7 +314,7 @@ function getCloser(curPos, places) {
   return pl.slice(0, 10);
 }
 
-
+// Descripción ---
 function initMap() {
   const google = window.google;
   getLocation(async (_pos) => {
@@ -361,7 +361,7 @@ function initMap() {
   home();
 }
 
-
+// Descripción ---
 function direction(origin, destination) {
   const google = window.google;
 
@@ -394,7 +394,7 @@ function direction(origin, destination) {
   calculateAndDisplayRoute(origin, destination);
 }
 
-
+// Descripción ---
 function exportDirections() {
   const modal = document.getElementById('modal');
   modal.classList.remove('hidden');
@@ -440,7 +440,7 @@ function exportDirections() {
   }
 }
 
-
+// Descripción ---
 function closeModal() {
   const modal = document.getElementById('modal');
   modal.classList.add('hidden');
