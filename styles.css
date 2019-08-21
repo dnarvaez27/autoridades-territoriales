@@ -365,6 +365,7 @@ button {
     margin: 20vh 10vw;
     transform: none;
     position: relative;
+    /* left: calc(10vw + 20px); */
   }
 
   #content > #data > div#aboutme-container > svg {

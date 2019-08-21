@@ -112,6 +112,8 @@ function aboutme() {
   if (!state || state !== 3) {
     state = 3;
 
+    const d3 = window.d3;
+
     const config = {
       size: { width: 500, height: 300 },
       numParticles: 18,
@@ -123,7 +125,7 @@ function aboutme() {
     const random = {
       range: (min, max) => Math.floor(Math.random() * (max - min)) + min,
       simetricalRange: (a) => ((Math.random() > 0.5) ? -1 : 1) * ((Math.random() * a) + 1)
-    }
+    };
 
     class Particle {
       constructor(x, y, vx, vy, radius, key = undefined) {
@@ -135,7 +137,7 @@ function aboutme() {
         this.key = key;
       }
 
-      update = (vx, vy) => {
+      update(vx, vy) {
         this.x += this.vx + (vx || 0);
         this.y += this.vy + (vy || 0);
       }
@@ -149,7 +151,7 @@ function aboutme() {
           const y = config.size.height / 2;
           const vx = random.simetricalRange(config.speed);
           const vy = random.simetricalRange(config.speed);
-          const radius = random.range(config.radius.min, config.radius.max)
+          const radius = random.range(config.radius.min, config.radius.max);
           const key = i;
           const particle = new Particle(x, y, vx, vy, radius, key);
           particles.push(particle);
@@ -158,67 +160,67 @@ function aboutme() {
         this.particles = particles;
       }
 
-      update = () => {
+      update () {
         this.particles.forEach(particle => {
           if (particle.x - particle.radius < 0) { particle.vx = -particle.vx; }
           if (particle.x + particle.radius > config.size.width) { particle.vx = -particle.vx; }
           if (particle.y - particle.radius < 0) { particle.vy = -particle.vy; }
           if (particle.y + particle.radius > config.size.height) { particle.vy = -particle.vy; }
           particle.update();
-        })
-      };
+        });
+      }
     }
 
     const filterGooeyColorBlending = (svg, id) => {
       const defs = svg
-        .append("defs");
+        .append('defs');
       const filter = defs
-        .append("filter")
-        .attr("id", id);
+        .append('filter')
+        .attr('id', id);
 
       filter
-        .append("feGaussianBlur")
-        .attr("in", "SourceGraphic")
-        .attr("stdDeviation", "10")
-        .attr("color-interpolation-filters", "sRGB")
-        .attr("result", "blur");
+        .append('feGaussianBlur')
+        .attr('in', 'SourceGraphic')
+        .attr('stdDeviation', '10')
+        .attr('color-interpolation-filters', 'sRGB')
+        .attr('result', 'blur');
 
-      filter.append("feColorMatrix")
-        .attr("in", "blur")
-        .attr("mode", "matrix")
-        .attr("values", "1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9")
-        .attr("result", "gooey");
-    }
+      filter.append('feColorMatrix')
+        .attr('in', 'blur')
+        .attr('mode', 'matrix')
+        .attr('values', '1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9')
+        .attr('result', 'gooey');
+    };
 
     const redraw = (g, particles) => {
       const particle = g
-        .selectAll("circle.particle")
+        .selectAll('circle.particle')
         .data(particles, d => d.key);
 
       const color = d3
         .scaleLinear()
         .domain([0, particles.length])
         .interpolate(d3.interpolateHcl)
-        .range([d3.rgb("#007AFF"), d3.rgb('#e91e63')]);
+        .range([d3.rgb('#007AFF'), d3.rgb('#e91e63')]);
 
       // Setup
       particle
         .enter()
-        .append("circle")
-        .attr("class", "particle")
-        .attr("r", d => d.radius)
+        .append('circle')
+        .attr('class', 'particle')
+        .attr('r', d => d.radius)
         .attr('fill', (_, i) => color(i));
       // .attr('fill', 'black');
 
       // Update
       particle
-        .attr("cx", d => d.x)
-        .attr("cy", d => d.y);
+        .attr('cx', d => d.x)
+        .attr('cy', d => d.y);
 
       particle
         .exit()
         .remove();
-    }
+    };
 
     document.getElementById('see-route').classList.add('hidden');
     const data = document.getElementById('data');
@@ -263,7 +265,7 @@ function aboutme() {
       );
 
       // clearTimeout(timeout[0]);
-      window.cancelAnimationFrame(timeout[0])
+      window.cancelAnimationFrame(timeout[0]);
 
       const _id = 'gooeyCodeFilter';
 
@@ -274,7 +276,7 @@ function aboutme() {
       filterGooeyColorBlending(svg, _id);
 
       const g = svg.append('g')
-        .style("filter", `url(#${_id})`);
+        .style('filter', `url(#${_id})`);
 
       const tick = () => {
         gen.update();
@@ -284,7 +286,7 @@ function aboutme() {
       };
 
       tick();
-      return svg.node()
+      return svg.node();
     })();
   }
 }
